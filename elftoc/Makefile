@@ -1,8 +1,7 @@
 #  Makefile for elftoc
 
-CC = gcc
-CFLAGS = -Wall -Wextra
-LDFLAGS = -Wall -Wextra
+CFLAGS += -O3 -Wall -Wextra -pipe
+LDFLAGS += -Wall -Wextra
 
 OBJS = gen.o names.o address.o readelf.o shdrtab.o phdrtab.o dynamic.o \
        pieces.o outbase.o outitems.o outelf64.o outelf32.o out.o elftoc.o
@@ -38,4 +37,4 @@ mknames: mknames.o
 mknames.o: mknames.c
 
 clean:
-	rm -f $(OBJS) elftoc elfnames.c mknames mknames.o
+	-@$(RM_F) $(OBJS) elftoc elfnames.c mknames mknames.o

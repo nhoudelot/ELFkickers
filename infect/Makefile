@@ -1,9 +1,8 @@
 #  Makefile for infect
 
-CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS += -O3 -Wall -Wextra  -pipe
 
 infect: infect.c
 
 clean:
-	rm -f infect
+	-@$(RM_F) infect

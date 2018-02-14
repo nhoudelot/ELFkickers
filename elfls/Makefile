@@ -1,7 +1,6 @@
 #  Makefile for elfls
 
-CC = gcc
-CFLAGS = -Wall -Wextra -I../elfrw
+CFLAGS += -O3 -Wall -Wextra -pipe -I../elfrw
 
 elfls: elfls.c ../elfrw/libelfrw.a
 
@@ -9,4 +8,4 @@ elfls: elfls.c ../elfrw/libelfrw.a
 	$(MAKE) -C ../elfrw libelfrw.a
 
 clean:
-	rm -f elfls
+		-@$(RM_F) elfls

@@ -1,7 +1,6 @@
 #  Makefile for ebfc
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Wno-missing-field-initializers
+CFLAGS += -O3 -Wall -Wextra -pipe -Wno-missing-field-initializers
 
 ebfc: ebfc.o brainfuck.o libelfparts.a
 
@@ -10,7 +9,7 @@ brainfuck.o: brainfuck.c elfparts.h ebfc.h
 
 libelfparts.a: elfparts.o ehdr.o phdrtab.o shdrtab.o progbits.o	\
                strtab.o symtab.o hash.o rel.o got.o dynamic.o
-	ar crs libelfparts.a $^
+	$(AR) crs libelfparts.a $^
 
 elfparts.o: elfparts.c elfparts.h gen.h
 ehdr.o: ehdr.c elfparts.h gen.h
@@ -25,6 +24,6 @@ got.o: got.c elfparts.h gen.h
 dynamic.o: dynamic.c elfparts.h gen.h
 
 clean:
-	rm -f elfparts.o ehdr.o phdrtab.o shdrtab.o progbits.o strtab.o
-	rm -f symtab.o hash.o rel.o got.o dynamic.o ebfc.o brainfuck.o
-	rm -f ebfc libelfparts.a
+	-@$(RM_F) elfparts.o ehdr.o phdrtab.o shdrtab.o progbits.o strtab.o
+	-@$(RM_F) symtab.o hash.o rel.o got.o dynamic.o ebfc.o brainfuck.o
+	-@$(RM_F) ebfc libelfparts.a

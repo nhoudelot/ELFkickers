@@ -1,7 +1,6 @@
 #  Makefile for rebind
 
-CC = gcc
-CFLAGS = -Wall -Wextra -I../elfrw
+CFLAGS += -O3 -Wall -Wextra -pipe -I../elfrw
 
 rebind: rebind.c ../elfrw/libelfrw.a
 
@@ -9,4 +8,4 @@ rebind: rebind.c ../elfrw/libelfrw.a
 	$(MAKE) -C ../elfrw libelfrw.a
 
 clean:
-	rm -f rebind
+	-@$(RM_F) rebind

@@ -1,7 +1,7 @@
 #  Makefile for objres
 
 CC = gcc
-CFLAGS = -Wall -Wextra -I../elfrw
+CFLAGS += -O3 -Wall -Wextra -pipe -I../elfrw
 LDFLAGS = -Wall -Wextra
 
 objres: objres.o ../elfrw/libelfrw.a
@@ -12,4 +12,4 @@ objres.o: objres.c ../elfrw/elfrw.h
 	$(MAKE) -C ../elfrw libelfrw.a
 
 clean:
-	rm -f objres objres.o
+	-@$(RM_F) objres objres.o
