@@ -118,7 +118,7 @@ static void parsecmdline(int argc, char *argv[])
     if (optind == argc)
 	fail("no input file.\n%s", helpsuffix);
     if (optind + 1 < argc)
-	fail("unrecognized extra argments.\n%s", helpsuffix);
+	fail("unrecognized extra arguments.\n%s", helpsuffix);
     inputfilename = argv[optind];
 
     if (width) {
